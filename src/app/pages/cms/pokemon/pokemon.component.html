@@ -1,0 +1,75 @@
+<section class="pokedex-container">
+  <a [routerLink]="['/user/pokemon', goPrev()]"
+    class="prev button-chgPage"></a>
+  <div class="pokedex-card">
+    <div class="baseInfo">
+      <div class="image">
+        <img [src]="pokemonInfo.img" [alt]="pokemonInfo.name">
+        <div class="pokeId">#{{ pokemonInfo.id }}</div>
+        <div class="typeImage"
+        [style.background-color]="types[pokemonInfo.types[0]].color">
+          <img
+            [src]="'/assets/pokemon/types/' + pokemonInfo.types[0] + '.svg'"
+            [alt]="pokemonInfo.name"
+          >
+        </div>
+      </div>
+      <div class="data">
+        <p class="pokeName">{{ pokemonInfo.name }}</p>
+        <div class="pokeTypes">
+          <span
+            *ngFor="let type of pokemonInfo.types"
+            [style.background-color]="types[type].color"
+          >{{ type }}</span>
+        </div>
+        <div class="bodyInfo">
+          <div class="info">
+            <span class="label">
+              weight
+            </span>
+            <span class="data">
+              {{ pokemonInfo.weight / 10}} Kg
+            </span>
+          </div>
+          <div class="info">
+            <span class="label">
+              height
+            </span>
+            <span class="data">
+              {{ pokemonInfo.height / 10 }} Mts
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="moreInfo">
+      <p class="label">
+        Base Stats:
+      </p>
+      <ul class="stats">
+        <li *ngFor="let stat of pokemonInfo.stats">
+          <span class="label-tag">{{ stat.name }}:</span>
+          <div class="progress-bar">
+            <div class="progress-width"
+              [style.width]="getProgressWith(stat.base_stat, pokeStats[stat.name].maxValue)"
+              [style.background-color]="pokeStats[stat.name].color"
+            >&nbsp;</div>
+            <span class="progress-content">
+              {{ stat.base_stat }} / {{ pokeStats[stat.name].maxValue }}
+            </span>
+          </div>
+        </li>
+      </ul>
+      <hr>
+      <p class="label">
+        Moves:
+      </p>
+      <ul class="moves">
+        <li *ngFor="let move of pokemonInfo.moves">{{ move }}</li>
+      </ul>
+    </div>
+  </div>
+  <a [routerLink]="['/user/pokemon', goNext()]"
+    class="next button-chgPage"></a>
+</section>

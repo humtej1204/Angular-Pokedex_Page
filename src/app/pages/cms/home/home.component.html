@@ -1,0 +1,19 @@
+<div class="search-bar">
+  <input
+    type="text"
+    placeholder="Buscar Pokemon"
+    #txtSearch
+    (keyup)="onSearchPokemon(txtSearch.value)"
+  />
+  <button
+    (click)="onSearchPokemon(txtSearch.value)"
+  >
+    Buscar
+  </button>
+</div>
+
+<app-pokemon-list
+  [pokemonData]="pokemonData"
+  [pokemonArraySlice]="pokemonArraySlice"
+  [paginatorOptions]="paginatorOptions"
+></app-pokemon-list>

@@ -1,0 +1,36 @@
+<header>
+  <b>Pokedex</b>
+
+  <ul class="links_list">
+    <li>
+      <a routerLink="/user/pokemones">Pokemon List</a>
+    </li>
+    <li>
+      <a routerLink="/user/pokemon/6">Pokemon-template Page</a>
+    </li>
+    <li>
+      <a routerLink="/user/form-test">Form Test</a>
+    </li>
+  </ul>
+
+  <div class="user_info">
+    <button class="menu_btn" (click)="openMenuProfile()">
+      <img src="/assets/user_avatar.jpg" alt="">
+    </button>
+
+    <div class="menu_cont" *ngIf="user && openMenu">
+      <strong>{{ user.name }}</strong>
+
+      <ul>
+        <li (click)="goProfile()">
+          <mat-icon>person</mat-icon>
+          <span>Ver Perfil</span>
+        </li>
+        <li (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Cerrar Sesión</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>

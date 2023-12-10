@@ -1,0 +1,32 @@
+<div class="login-container">
+  <div class="form-container">
+
+    <h1 class="tittle">Ingresar</h1>
+
+    <form [formGroup]="loginForm" (ngSubmit)="sendData($event)">
+      <mat-form-field appearance="outline">
+        <mat-label>Usuario</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'"
+        formControlName="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <button mat-stroked-button
+      color="primary" type="submit">
+        Log In
+      </button>
+    </form>
+
+    <p class="redirectRegister">
+      First time here? <a href="/register">Sing up</a>
+    </p>
+
+  </div>
+</div>
