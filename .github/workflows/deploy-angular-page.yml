@@ -22,7 +22,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build --configuration production --base-href https://humtej1204.github.io/Angular-Pokedex_Page/
+        run: npm run build:ghpage
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v2
