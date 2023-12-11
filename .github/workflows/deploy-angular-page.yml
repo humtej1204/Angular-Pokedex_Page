@@ -19,7 +19,7 @@ jobs:
       - name: Install
         run: npm ci
       - name: Build
-        run: npm run build -- -c production --base-href "https://<YOUR_GITHUB_USER_NAME>.github.io/<YOUR_REPOSITORY>/"
+        run: npm run build -- -c production --base-href "https://humtej1204.github.io/Angular-Pokedex_Page/"
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v2
         with:
