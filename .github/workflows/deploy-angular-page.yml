@@ -11,15 +11,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18.x.x
+          node-version: 20
           cache: npm
+
       - name: Install
         run: npm ci
+
       - name: Build
-        run: npm run build -- -c production --base-href "https://humtej1204.github.io/Angular-Pokedex_Page/"
+        run: npm run build --configuration production --base-href https://humtej1204.github.io/Angular-Pokedex_Page/
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v2
         with:
