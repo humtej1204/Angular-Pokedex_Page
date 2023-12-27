@@ -6,40 +6,67 @@ on:
       - main
 
 jobs:
-  build:
+  test01:
     runs-on: ubuntu-22.04
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - name: Test step001
+        run: |
+          pwd
+          ls
+          mkdir test01
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: npm
-
-      - name: Install
-        run: npm ci
-
-      - name: Build
-        run: npm run build:ghpage
-
-      - name: Upload Pages artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: dist
-          path: dist/
-
-  deploy:
-    needs: build
+  test02:
     runs-on: ubuntu-22.04
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - name: Test step001
+        run: |
+          pwd
+          ls
+          mkdir test02
+        
+  test03:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Test step001
+        run: |
+          pwd
+          ls
+          mkdir test03
+     
+#   build:
+#     runs-on: ubuntu-22.04
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v3
 
-      - name: Deploy to GitHub Pages
-        uses: github/pages-deploy@v0.6.3
-        with:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          branch: gh-pages
-          folder: dist
+#       - name: Setup Node.js
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: 18
+#           cache: npm
+
+#       - name: Install
+#         run: npm ci
+
+#       - name: Build
+#         run: npm run build:ghpage
+
+#       - name: Upload Pages artifact
+#         uses: actions/upload-artifact@v3
+#         with:
+#           name: dist
+#           path: dist/
+
+#   deploy:
+#     needs: build
+#     runs-on: ubuntu-22.04
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v3
+
+#       - name: Deploy to GitHub Pages
+#         uses: github/pages-deploy@v0.6.3
+#         with:
+#           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+#           branch: gh-pages
+#           folder: dist
