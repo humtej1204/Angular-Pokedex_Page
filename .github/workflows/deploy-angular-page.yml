@@ -14,6 +14,9 @@ jobs:
         
       - name: Move to Repository Directory
         run: cd Angular-Pokedex_Page
+
+      - name: Test
+        run: echo "$GITHUB_SHA"
         
       - name: Set last commit in tepository state
         run: git checkout $GITHUB_SHA
