@@ -41,6 +41,12 @@ jobs:
         
       - name: Test ls step003
         run: ls -la
+        
+      - name: Test cd step003
+        run: cd ..
+        
+      - name: Test ls step003-v2
+        run: ls -la
      
 #   build:
 #     runs-on: ubuntu-22.04
