@@ -9,12 +9,6 @@ jobs:
   test01:
     runs-on: ubuntu-22.04
     steps:
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: npm
-
       - name: Download  Repository
         run: git clone https://github.com/humtej1204/Angular-Pokedex_Page.git
         
@@ -29,6 +23,12 @@ jobs:
         
       - name: Set last commit in tepository state
         run: git checkout $GITHUB_SHA
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: npm
 
       - name: Install
         run: npm ci
