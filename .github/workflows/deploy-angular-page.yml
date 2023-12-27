@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Test pwd step002
-        run: pwd
+        run: echo "$(pwd)" && ls -la
         
       - name: Test mkdir step002
         run: mkdir test02
