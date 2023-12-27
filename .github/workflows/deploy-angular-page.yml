@@ -13,7 +13,6 @@ jobs:
         run: |
           git clone https://github.com/humtej1204/Angular-Pokedex_Page.git
           cd Angular-Pokedex_Page
-          git checkout $GITHUB_SHA
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -21,10 +20,10 @@ jobs:
           node-version: 18
           cache: npm
 
-      - name: Install
+      - name: Install Dependencies
         run: npm ci
 
-      - name: Build
+      - name: Build App
         run: npm run build
 
       - name: Test
