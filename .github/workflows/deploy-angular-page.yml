@@ -9,44 +9,37 @@ jobs:
   test01:
     runs-on: ubuntu-22.04
     steps:
-      - name: Test pwd step001
-        run: pwd
-        
-      - name: Test mkdir step001
-        run: mkdir test01
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: npm
+
+      - name: Download  Repository
+        run: git clone https://github.com/humtej1204/Angular-Pokedex_Page.git
         
       - name: Test ls step001
         run: ls -la
+        
+      - name: Move to Repository Directory
+        run: cd Angular-Pokedex_Page
+        
+      - name: Set last commit in tepository state
+        run: git checkout $GITHUB_SHA
+        
+      - name: Set last commit in tepository state
+        run: git checkout $GITHUB_SHA
 
-  test02:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Test pwd step002
-        run: echo "$(pwd)" && ls -la
-        
-      - name: Test mkdir step002
-        run: mkdir test02
-        
-      - name: Test ls step002
-        run: ls -la
+      - name: Install
+        run: npm ci
 
-  test03:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Test pwd step003
-        run: pwd
-        
-      - name: Test mkdir step003
-        run: mkdir test03
-        
-      - name: Test ls step003
-        run: ls -la
-        
-      - name: Test cd step003
-        run: cd ..
-        
-      - name: Test ls step003-v2
-        run: ls -la
+      - name: Build
+        run: npm run build
+
+      - name: Test
+        run: echo "$GITHUB_WORKSPACE"
+
+      
      
 #   build:
 #     runs-on: ubuntu-22.04
