@@ -12,11 +12,6 @@ jobs:
       - name: Download  Repository
         run: |
           git clone https://github.com/humtej1204/Angular-Pokedex_Page.git
-          cd Angular-Pokedex_Page
-          git checkout $GITHUB_SHA
-
-      - name: Test
-        run: ls -la
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
