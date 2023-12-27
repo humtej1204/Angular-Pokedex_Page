@@ -9,29 +9,38 @@ jobs:
   test01:
     runs-on: ubuntu-22.04
     steps:
-      - name: Test step001
-        run: |
-          pwd
-          ls
-          mkdir test01
+      - name: Test pwd step001
+        run: pwd
+        
+      - name: Test mkdir step001
+        run: mkdir test01
+        
+      - name: Test ls step001
+        run: ls -la
 
   test02:
     runs-on: ubuntu-22.04
     steps:
-      - name: Test step001
-        run: |
-          pwd
-          ls
-          mkdir test02
+      - name: Test pwd step002
+        run: pwd
         
+      - name: Test mkdir step002
+        run: mkdir test02
+        
+      - name: Test ls step002
+        run: ls -la
+
   test03:
     runs-on: ubuntu-22.04
     steps:
-      - name: Test step001
-        run: |
-          pwd
-          ls
-          mkdir test03
+      - name: Test pwd step003
+        run: pwd
+        
+      - name: Test mkdir step003
+        run: mkdir test03
+        
+      - name: Test ls step003
+        run: ls -la
      
 #   build:
 #     runs-on: ubuntu-22.04
