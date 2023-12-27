@@ -10,16 +10,10 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Download  Repository
-        run: git clone https://github.com/humtej1204/Angular-Pokedex_Page.git
-        
-      - name: Move to Repository Directory
-        run: cd Angular-Pokedex_Page
-
-      - name: Test
-        run: echo "$GITHUB_SHA"
-        
-      - name: Set last commit in tepository state
-        run: git checkout $GITHUB_SHA
+        run: |
+          git clone https://github.com/humtej1204/Angular-Pokedex_Page.git
+          cd Angular-Pokedex_Page
+          git checkout $GITHUB_SHA
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
