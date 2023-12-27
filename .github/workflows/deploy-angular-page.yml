@@ -12,14 +12,8 @@ jobs:
       - name: Download  Repository
         run: git clone https://github.com/humtej1204/Angular-Pokedex_Page.git
         
-      - name: Test ls step001
-        run: ls -la
-        
       - name: Move to Repository Directory
         run: cd Angular-Pokedex_Page
-        
-      - name: Set last commit in tepository state
-        run: git checkout $GITHUB_SHA
         
       - name: Set last commit in tepository state
         run: git checkout $GITHUB_SHA
